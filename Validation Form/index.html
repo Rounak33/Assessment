@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Survey Form</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <form class="row g-3 survey-form" id="survey-form">
+      <h1 style="text-align: center" class="display-3">Survey Form</h1>
+      <div class="col-md-6">
+        <label for="first-name" class="form-label">First name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="first-name"
+          required
+          autocomplete="off"
+          onkeyup="validate()"
+        />
+        <div class="valid-feedback" id="first-name-valid">Looks good!</div>
+        <div class="invalid-feedback" id="first-name-invalid">
+          Please enter a valid first name
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="last-name" class="form-label">Last name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="last-name"
+          required
+          autocomplete="off"
+          onkeyup="validate()"
+        />
+        <div class="valid-feedback" id="last-name-valid">Looks good!</div>
+        <div class="invalid-feedback" id="last-name-invalid">
+          Please enter a valid last name
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="email" class="form-label">Email</label>
+        <div class="input-group has-validation">
+          <span class="input-group-text" id="inputGroupPrepend">@</span>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            aria-describedby="inputGroupPrepend"
+            required
+            autocomplete="off"
+            onkeyup="validate()"
+          />
+          <div class="valid-feedback" id="email-valid">Looks good!</div>
+        </div>
+        <div class="invalid-feedback" id="email-invalid">
+          Please enter a valid email
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="phone-number" class="form-label">Phone Number</label>
+        <div class="input-group has-validation">
+          <span class="input-group-text" id="inputGroupPrepend">+91</span>
+          <input
+            type="text"
+            class="form-control"
+            id="phone-number"
+            aria-describedby="inputGroupPrepend"
+            required
+            autocomplete="off"
+            onkeyup="validate()"
+          />
+          <div class="valid-feedback" id="phone-number-valid">Looks good!</div>
+        </div>
+        <div class="invalid-feedback" id="phone-number-invalid">
+          Please enter a valid phone number
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="date" class="form-label">Date Of Birth</label>
+        <input
+          type="date"
+          class="form-control"
+          id="date"
+          aria-describedby="inputGroupPrepend"
+          required
+          autocomplete="off"
+          onchange="validate()"
+        />
+        <div class="valid-feedback" id="date-valid">Looks good!</div>
+        <div class="invalid-feedback" id="date-invalid">
+          Please enter a valid date of birth
+        </div>
+      </div>
+
+      <div class="col-md-6 text-center">
+        <label for="country" class="form-label">Profession</label>
+        <select
+          class="form-select"
+          id="profession"
+          required
+          onchange="validate()"
+        >
+          <option value="None" selected>Choose...</option>
+          <option value="engineer">Engineer</option>
+          <option value="doctor">Doctor</option>
+          <option value="scientist">Scientist</option>
+          <option value="accountant">Accountant</option>
+        </select>
+        <div class="valid-feedback" id="profession-valid">Looks good!</div>
+        <div class="invalid-feedback" id="profession-invalid">
+          Please select a valid profession.
+        </div>
+      </div>
+
+      <div class="col-md-12 text-center">
+        <label for="gender" class="form-label">Gender</label><br />
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="male"
+            value="option1"
+            onclick="validate()"
+          />
+          <label class="form-check-label" for="male">Male</label>
+
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="inlineRadioOptions"
+              id="female"
+              value="option2"
+              onclick="validate()"
+            />
+            <label class="form-check-label" for="female">Female</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="inlineRadioOptions"
+              id="others"
+              value="option3"
+              onclick="validate()"
+            />
+            <label class="form-check-label" for="others">Others</label>
+          </div>
+          <div class="valid-feedback" id="valid-gender">Looks good!</div>
+          <div class="invalid-feedback" id="invalid-gender">
+            Please Select a valid gender
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-11 text-center">
+        <label for="country" class="form-label">Country</label>
+        <select class="form-select" id="country" required onchange="validate()">
+          <option value="None" selected>Choose...</option>
+          <option value="India">India</option>
+          <option value="Usa">Usa</option>
+        </select>
+        <div class="valid-feedback" id="country-valid">Looks good!</div>
+        <div class="invalid-feedback" id="country-invalid">
+          Please select a valid country.
+        </div>
+      </div>
+
+      <div class="col-12" style="text-align: center">
+        <button class="btn btn-dark" type="button" onclick="validate(true)">
+          Submit form
+        </button>
+<br><br>
+        <div class="col-12" style="text-align: center">
+          <button class="btn btn-secondary" id="reset-button" type="button" onclick="reset()">
+            Reset 
+          </button>
+        </div>
+      </div>
+    </form>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    >
+     
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
